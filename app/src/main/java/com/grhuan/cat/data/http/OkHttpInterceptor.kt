@@ -7,7 +7,7 @@ object OkHttpInterceptor {
         .addInterceptor { chain ->
             val request = chain.request().newBuilder()
                 .addHeader("Content-Type", "application/json")
-                .addHeader("x-api-key", "live_gG5KSKLPQbuQyV1t6njIE8na0muSSdpebUorRpW8HIJQDXingbA9o4SieDacD9bo")
+                .addHeader("x-api-key", "key")
                 .build()
             chain.proceed(request)
         }
