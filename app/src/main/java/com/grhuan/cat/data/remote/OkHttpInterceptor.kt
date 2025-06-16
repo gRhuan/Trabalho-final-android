@@ -1,6 +1,5 @@
-package com.grhuan.cat.data.remote
+package com.grhuan.cat.data.http
 
-import com.grhuan.cat.BuildConfig
 import okhttp3.OkHttpClient
 
 object OkHttpInterceptor {
@@ -8,7 +7,7 @@ object OkHttpInterceptor {
         .addInterceptor { chain ->
             val request = chain.request().newBuilder()
                 .addHeader("Content-Type", "application/json")
-                .addHeader("x-api-key", BuildConfig.CAT_API_KEY)
+                .addHeader("x-api-key", "key")
                 .build()
             chain.proceed(request)
         }
