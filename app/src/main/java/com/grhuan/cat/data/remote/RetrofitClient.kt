@@ -1,4 +1,4 @@
-package com.grhuan.cat.data.http
+package com.grhuan.cat.data.remote
 
 import com.grhuan.cat.data.service.CatService
 import retrofit2.Retrofit

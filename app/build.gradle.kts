@@ -4,6 +4,7 @@ plugins {
     kotlin("kapt")
     id("org.jetbrains.kotlin.plugin.serialization") version "1.9.22"
 }
+val catApiKey: String = project.findProperty("CAT_API_KEY") as? String ?: ""
 
 android {
     namespace = "com.grhuan.cat"
@@ -15,8 +16,12 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "CAT_API_KEY", "\"$catApiKey\"")
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
