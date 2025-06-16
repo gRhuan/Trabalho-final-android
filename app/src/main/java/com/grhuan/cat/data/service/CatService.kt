@@ -4,6 +4,6 @@ import com.grhuan.cat.data.model.CatResponse
 import retrofit2.http.GET
 
 interface CatService {
-    @GET("/images/search?size=small&has_breeds=true")
+    @GET("images/search?size=small&has_breeds=true")
     suspend fun getRandomCat(): List<CatResponse>
 }
