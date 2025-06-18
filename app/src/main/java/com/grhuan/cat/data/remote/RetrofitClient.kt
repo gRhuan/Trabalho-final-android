@@ -1,5 +1,6 @@
 package com.grhuan.cat.data.remote
 
+import com.grhuan.cat.data.http.OkHttpInterceptor
 import com.grhuan.cat.data.service.CatService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

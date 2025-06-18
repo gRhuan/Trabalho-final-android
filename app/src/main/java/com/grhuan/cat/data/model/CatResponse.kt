@@ -1,6 +1,7 @@
 package com.grhuan.cat.data.model
 
 data class CatResponse(
+    val id: String,
     val name: String,
-    val url: String,
+    val imageUrl: String,
 )

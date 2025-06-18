@@ -26,4 +26,8 @@ class RandomCatViewModel (private val repository: CatRepository) : ViewModel() {
         }
     }
 
+    fun saveCat(){
+        //sla
+    }
+
 }
