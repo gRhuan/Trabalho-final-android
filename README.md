@@ -17,14 +17,5 @@ O projeto foi desenvolvido com foco em aprendizado prático das seguintes tecnol
 
 ### Instalação
 
-Você pode instalar o aplicativo de duas formas:
-
-- Baixando o APK disponível nas [tags do GitHub](https://github.com/gRhuan/Trabalho-final-android/tags) e instalando diretamente no seu dispositivo Android.
-- Ou clonando o repositório:
-```bash
-
-git clone https://github.com/gRhuan/Trabalho-final-android.git
-```
-
-- Execute no android studio
-- Compile o app
+-  APK disponível nas [tags do GitHub](https://github.com/gRhuan/Trabalho-final-android/tags) e instalando diretamente no seu dispositivo Android.
+  
