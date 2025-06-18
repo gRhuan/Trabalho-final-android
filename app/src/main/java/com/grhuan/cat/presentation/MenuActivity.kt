@@ -18,5 +18,10 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, RandomCatActivity::class.java)
             startActivity(intent)
         }
+
+        binding.buttonFavorites.setOnClickListener {
+            val intent = Intent(this, GalleryActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

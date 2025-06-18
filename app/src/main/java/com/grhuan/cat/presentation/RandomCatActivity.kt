@@ -1,5 +1,6 @@
 package com.grhuan.cat.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -20,13 +21,14 @@ class RandomCatActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityRandomCatBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Observa o gato
         viewModel.cat.observe(this) { catResponse ->
             Glide.with(this)
-                .load(catResponse.url)
+                .load(catResponse.imageUrl)
                 .into(binding.catImageView)
            //binding.catNameTextView.text = catResponse.name
         }
@@ -40,6 +42,15 @@ class RandomCatActivity : AppCompatActivity() {
 
         binding.nextButton.setOnClickListener {
             viewModel.loadRandomCat()
+        }
+
+        binding.saveButton.setOnClickListener {
+            //save id cat
+        }
+
+        binding.imagBack.setOnClickListener {
+            val intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
         }
     }
 }
