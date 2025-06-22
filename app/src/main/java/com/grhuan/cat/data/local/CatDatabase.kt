@@ -1,8 +1,9 @@
 package com.grhuan.cat.data.local
 
+import android.content.Context
 import androidx.room.Database
+import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.grhuan.cat.data.local.dao.Catdao
 import com.grhuan.cat.data.model.CatEntity
 
 @Database(
@@ -11,5 +12,25 @@ import com.grhuan.cat.data.model.CatEntity
     exportSchema = false
 )
 abstract class CatDatabase: RoomDatabase() {
-    abstract fun catDao(): Catdao
+    abstract val catDao : CatDao
+
+    companion object{
+    @Volatile
+    private var INSTANCE: CatDatabase? = null
+        fun getInstance(context: Context) : CatDatabase {
+            synchronized(this){
+                var instance = INSTANCE
+                if(instance == null){
+                    instance  = Room.databaseBuilder(
+                        context.applicationContext,
+                        CatDatabase::class.java,
+                        "cat-db"
+                    ).fallbackToDestructiveMigration()
+                        .build()
+                    INSTANCE = instance
+                }
+                return instance
+            }
+        }
+    }
 }
