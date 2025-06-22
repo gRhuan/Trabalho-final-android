@@ -46,7 +46,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -55,6 +54,11 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //version
+    var room = "2.6.1"
+    var glide = "4.16.0"
+    var koin_version = "3.5.0"
 
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
@@ -72,11 +76,15 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.8.2")
 
     //Glide
-    implementation("com.github.bumptech.glide:glide:4.16.0")
-    kapt("com.github.bumptech.glide:compiler:4.16.0")
+    implementation("com.github.bumptech.glide:glide:$glide")
+    kapt("com.github.bumptech.glide:compiler:$glide")
 
     //Room
-    implementation("androidx.room:room-runtime:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-runtime:$room")
+    implementation("androidx.room:room-ktx:$room")
+    kapt("androidx.room:room-compiler:$room")
+
+    //Koin
+    implementation("io.insert-koin:koin-core:$koin_version")
+    implementation("io.insert-koin:koin-android:$koin_version")
 }

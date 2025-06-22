@@ -6,47 +6,51 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.GalleryActivity"
+    tools:context=".presentation.gallery.GalleryActivity"
     android:background="@color/white">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/imagBack"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:background="@drawable/img_back"
+        android:id="@+id/ivBack"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/ic_arrow_left"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="1dp"
-        android:layout_marginStart="-16dp"/>
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="6dp"
+        />
 
-    <ImageView
-        android:id="@+id/imgCaixaRosa"
-        android:layout_width="150dp"
-        android:layout_height="124dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginTop="15dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ivTrash"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/ic_trash"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/galeria"/>
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="6dp"
+        />
 
     <TextView
-        android:id="@+id/Tv"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="42sp"
+        android:textSize="52sp"
         android:text="@string/gallery"
         android:textStyle="bold"
         android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/imgCaixaRosa"
-        app:layout_constraintTop_toTopOf="@id/imgCaixaRosa"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCats"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgCaixaRosa"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="15dp"
         tools:itemCount="20"
         tools:listitem="@layout/item_cat"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

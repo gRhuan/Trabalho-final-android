@@ -1,15 +1,16 @@
-package com.grhuan.cat.data.http
+package com.grhuan.cat.data.remote
 
-import okhttp3.OkHttpClient
+import com.grhuan.cat.utils.PreferencesUtils
+import okhttp3.Interceptor
+import okhttp3.Response
 
-object OkHttpInterceptor {
-    val client = OkHttpClient.Builder()
-        .addInterceptor { chain ->
-            val request = chain.request().newBuilder()
-                .addHeader("Content-Type", "application/json")
-                .addHeader("x-api-key", "key")
-                .build()
-            chain.proceed(request)
-        }
-        .build()
+
+class ApiKeyInterceptor(private val preferencesUtils: PreferencesUtils) : Interceptor {
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val apiKey = preferencesUtils.getKeyApi() ?: ""
+        val request = chain.request().newBuilder()
+            .addHeader("x-api-key", apiKey)
+            .build()
+        return chain.proceed(request)
+    }
 }
