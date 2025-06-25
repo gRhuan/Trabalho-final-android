@@ -4,24 +4,26 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.grhuan.cat.data.model.CatEntity
 
 @Database(
     entities = [CatEntity::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
-abstract class CatDatabase: RoomDatabase() {
-    abstract val catDao : CatDao
+@TypeConverters(Converters::class)
+abstract class CatDatabase : RoomDatabase() {
+    abstract val catDao: CatDao
 
-    companion object{
-    @Volatile
-    private var INSTANCE: CatDatabase? = null
-        fun getInstance(context: Context) : CatDatabase {
-            synchronized(this){
+    companion object {
+        @Volatile
+        private var INSTANCE: CatDatabase? = null
+        fun getInstance(context: Context): CatDatabase {
+            synchronized(this) {
                 var instance = INSTANCE
-                if(instance == null){
-                    instance  = Room.databaseBuilder(
+                if (instance == null) {
+                    instance = Room.databaseBuilder(
                         context.applicationContext,
                         CatDatabase::class.java,
                         "cat-db"
