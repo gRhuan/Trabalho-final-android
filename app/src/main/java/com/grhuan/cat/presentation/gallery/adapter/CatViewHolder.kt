@@ -10,7 +10,7 @@ class CatViewHolder(private val binding: ItemCatBinding): RecyclerView.ViewHolde
         Glide.with(binding.root.context)
             .load(item.url)
             .into(binding.ivIcon)
-        binding.tvName.text = item.id
+        binding.tvName.text = item.breeds.firstOrNull()?.name ?: "Sem nome"
 
         binding.root.setOnClickListener {
             onClickListener.invoke(item.id)
