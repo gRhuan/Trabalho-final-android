@@ -46,10 +46,9 @@ No app, acesse o menu de configurações e insira sua chave para liberar todas a
 
 ## 📸 Screenshots
 
->
-> ![Tela inicial](./screenshots/tela_inicial.png)
-> ![Lista de favoritos](./screenshots/lista_favoritos.png)
-> ![Lista de favoritos](./screenshots/gatos.png)
+> !<img src="./screenshots/tela_menu.png" width="300">
+> !<img src="./screenshots/tela_galeria.png" width="300">
+> !<img src="./screenshots/tela_novo_gato.png" width="300">
 
 ---
 
