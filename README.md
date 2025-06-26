@@ -46,9 +46,9 @@ No app, acesse o menu de configurações e insira sua chave para liberar todas a
 
 ## 📸 Screenshots
 
-> !<img src="./screenshots/tela_menu.png" width="300">
-> !<img src="./screenshots/tela_galeria.png" width="300">
-> !<img src="./screenshots/tela_novo_gato.png" width="300">
+> <img src="./screenshots/tela_menu.png" width="220">
+> <img src="./screenshots/tela_galeria.png" width="220">
+> <img src="./screenshots/tela_novo_gato.png" width="220">
 
 ---
 
