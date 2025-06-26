@@ -57,6 +57,7 @@ class NewCatActivity : AppCompatActivity() {
         binding.ivBack.setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }

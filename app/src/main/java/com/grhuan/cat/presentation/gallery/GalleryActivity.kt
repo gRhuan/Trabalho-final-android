@@ -3,6 +3,7 @@ package com.grhuan.cat.presentation.gallery
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.grhuan.cat.databinding.ActivityGalleryBinding
@@ -16,8 +17,6 @@ class GalleryActivity : AppCompatActivity() {
 
     private val viewModel: GalleryViewModel by viewModel()
 
-    private var isRemoveMode = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -25,13 +24,16 @@ class GalleryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         adapter = CatAdapter { catId ->
-            if (isRemoveMode) {
-                viewModel.removeCat(catId)
-                isRemoveMode = false
-
-            } else {
-                // Comportamento normal de clique, se quiser
-            }
+            AlertDialog.Builder(this)
+                .setTitle("Deseja excluir ?")
+                .setPositiveButton("Sim") { dialog, _ ->
+                    viewModel.removeCat(catId)
+                    dialog.dismiss()
+                }
+                .setNegativeButton("Não") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .show()
         }
 
         binding.rvCats.adapter = adapter
@@ -50,11 +52,7 @@ class GalleryActivity : AppCompatActivity() {
         binding.ivBack.setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
-        }
-
-        binding.ivTrash.setOnClickListener {
-            isRemoveMode = true
-            Toast.makeText(this, "Click on the item to delete", Toast.LENGTH_SHORT).show()
+            finish()
         }
 
         viewModel.getCats()

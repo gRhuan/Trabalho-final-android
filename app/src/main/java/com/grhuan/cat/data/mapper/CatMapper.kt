@@ -6,11 +6,13 @@ import com.grhuan.cat.data.model.CatResponse
 object CatMappers {
     fun toEntity(catResponse: CatResponse) = CatEntity(
         id = catResponse.id,
-        url = catResponse.url
+        url = catResponse.url,
+        breeds = catResponse.breeds
     )
 
     fun toResponse(catEntity: CatEntity) = CatResponse(
         id = catEntity.id,
-        url = catEntity.url
+        url = catEntity.url,
+        breeds = catEntity.breeds
     )
 }
